@@ -19,9 +19,7 @@ steps:
     pull: always
     settings:
       auto_tag: true
-      repo: gitea/proto-tool
-      build_args:
-        - GOPROXY=https://goproxy.io
+      repo: appleboy/proto-tool
       password:
         from_secret: docker_password
       username:
