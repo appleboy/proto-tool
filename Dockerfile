@@ -5,6 +5,8 @@ LABEL maintainer="Bo-Yi Wu <appleboy.tw@gmail.com>" \
   org.label-schema.vendor="Bo-Yi Wu" \
   org.label-schema.schema-version="1.0"
 
+COPY Makefile Makefile
+
 RUN apk add --no-cache make && \
   rm -rf /var/cache/apk/*
 
