@@ -15,10 +15,11 @@ trigger:
 
 steps:
   - name: publish
-    image: techknowlogick/drone-docker:latest
+    image: plugins/docker
     pull: always
     settings:
       auto_tag: true
+      auto_tag_suffix: linux-amd64
       repo: appleboy/proto-tool
       password:
         from_secret: docker_password
