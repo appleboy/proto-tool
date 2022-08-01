@@ -1,0 +1,32 @@
+---
+kind: pipeline
+type: docker
+name: proto-tool
+
+platform:
+  os: linux
+  arch: amd64
+
+trigger:
+  event:
+    - push
+    - tag
+    - pull_request
+
+steps:
+  - name: publish
+    image: techknowlogick/drone-docker:latest
+    pull: always
+    settings:
+      auto_tag: true
+      repo: gitea/proto-tool
+      build_args:
+        - GOPROXY=https://goproxy.io
+      password:
+        from_secret: docker_password
+      username:
+        from_secret: docker_username
+    when:
+      event:
+        exclude:
+        - pull_request
